@@ -285,7 +285,7 @@ When RAG is active:
 | `suggestedPrompts`| `string[]` | `[]` | Array of quick-click suggestion chips shown in empty state. |
 | `persistChat` | `boolean` | `false` | When enabled, conversations are saved to `localStorage`. |
 | `storageKey` | `string` | `""` | Custom `localStorage` key (defaults to `snapbot_chat_{botName}`). |
-| `theme` | `"light" \| "dark" \| "auto"` | `"light"` | Widget color theme. |
+| `theme` | `"light" \| "dark" \| "glass" \| "cyber" \| "auto"` | `"light"` | Widget theme: Modern Light, Obsidian Dark, Frosted Glassmorphism, or Cyberpunk Neon. |
 | `showClearButton`| `boolean` | `true` | Toggles the conversation reset button in the header. |
 | `showBranding` | `boolean` | `true` | Toggles the "Powered by SnapBot" badge in the footer. |
 | `useKnowledgeBase`| `boolean` | `false` | Enables grounded RAG retrieval from vector database. |

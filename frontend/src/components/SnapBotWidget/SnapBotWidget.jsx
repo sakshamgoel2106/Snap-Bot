@@ -523,7 +523,14 @@ export function SnapBotWidget({
           {/* Header */}
           <div className="snapbot-header">
             <div className="snapbot-header-info">
-              <div className="snapbot-avatar" aria-hidden="true">⚡</div>
+              <div className="snapbot-avatar" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+                  <rect x="3" y="8" width="18" height="12" rx="4"></rect>
+                  <circle cx="9" cy="14" r="1.5" fill="currentColor"></circle>
+                  <circle cx="15" cy="14" r="1.5" fill="currentColor"></circle>
+                </svg>
+              </div>
               <div className="snapbot-header-titles">
                 <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <strong>{botName}</strong>
@@ -549,7 +556,16 @@ export function SnapBotWidget({
                   aria-label="Knowledge Base Documents"
                   type="button"
                 >
-                  {showDocsModal ? "💬" : "📚"}
+                  {showDocsModal ? (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                  )}
                 </button>
               )}
 
@@ -561,7 +577,10 @@ export function SnapBotWidget({
                   aria-label="Clear conversation"
                   type="button"
                 >
-                  ↺
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                    <path d="M3 3v5h5"></path>
+                  </svg>
                 </button>
               )}
 
@@ -572,7 +591,10 @@ export function SnapBotWidget({
                 title="Close chat"
                 type="button"
               >
-                ✕
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
               </button>
             </div>
           </div>
@@ -829,7 +851,13 @@ export function SnapBotWidget({
                     title="Upload PDF, TXT, or Markdown to knowledge base"
                     aria-label="Upload document"
                   >
-                    {uploading ? "⏳" : "📎"}
+                    {uploading ? (
+                      <span className="snapbot-upload-spinner" />
+                    ) : (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+                      </svg>
+                    )}
                   </button>
                 </>
               )}
@@ -860,7 +888,10 @@ export function SnapBotWidget({
                 aria-label="Send message"
                 type="button"
               >
-                ➤
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
               </button>
             </div>
 
@@ -882,7 +913,17 @@ export function SnapBotWidget({
         aria-expanded={isOpen}
         type="button"
       >
-        {isOpen ? "✕" : "⚡"}
+        {isOpen ? (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        ) : (
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+        )}
+        <span className="snapbot-button-beacon" aria-hidden="true" />
       </button>
     </>
   );

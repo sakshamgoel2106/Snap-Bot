@@ -17,17 +17,17 @@
   height: 60px;
   border: none;
   border-radius: 50%;
-  background: var(--snapbot-primary, #111827);
+  background: linear-gradient(135deg, var(--snapbot-primary, #111827) 0%, color-mix(in srgb, var(--snapbot-primary, #111827) 82%, #000) 100%);
   color: #ffffff;
-  font-size: 26px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+  box-shadow: 0 12px 30px -5px color-mix(in srgb, var(--snapbot-primary, #111827) 45%, transparent), 0 8px 10px -6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   z-index: 999999;
   user-select: none;
+  position: fixed;
 }
 
 .snapbot-button.pos-left,
@@ -44,13 +44,25 @@
 
 .snapbot-button:hover,
 .plugai-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.35), 0 10px 15px -5px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 20px 38px -6px color-mix(in srgb, var(--snapbot-primary, #111827) 55%, transparent), 0 10px 15px -5px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.35);
 }
 
 .snapbot-button:active,
 .plugai-button:active {
-  transform: translateY(0) scale(0.96);
+  transform: translateY(0) scale(0.95);
+}
+
+.snapbot-button-beacon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px #10b981;
 }
 
 /* Chat Window Modal */
@@ -65,11 +77,11 @@
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 25px 70px -15px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.06);
   z-index: 999998;
-  animation: snapbot-slide-up 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: snapbot-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .snapbot-window.pos-left,
@@ -347,10 +359,10 @@
 .snapbot-message.user,
 .plugai-message.user {
   margin-left: auto;
-  background: var(--snapbot-primary, #111827);
+  background: linear-gradient(135deg, var(--snapbot-primary, #111827) 0%, color-mix(in srgb, var(--snapbot-primary, #111827) 82%, #000) 100%);
   color: #ffffff;
-  border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 18px 18px 4px 18px;
+  box-shadow: 0 5px 16px -2px color-mix(in srgb, var(--snapbot-primary, #111827) 35%, transparent);
 }
 
 .snapbot-message.assistant,
@@ -358,8 +370,8 @@
   margin-right: auto;
   background: #ffffff;
   color: #1e293b;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 4px 16px -3px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
   border: 1px solid #e2e8f0;
 }
 
@@ -491,9 +503,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 12px;
+  padding: 8px 14px;
   background: #1e293b;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.snapbot-code-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.snapbot-code-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.snapbot-code-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.snapbot-dot-red {
+  background: #ff5f56;
+}
+
+.snapbot-dot-yellow {
+  background: #ffbd2e;
+}
+
+.snapbot-dot-green {
+  background: #27c93f;
 }
 
 .snapbot-code-lang {
@@ -1021,6 +1064,261 @@
     border-color: #334155;
     color: #f8fafc;
   }
+}
+
+/* ==========================================================================
+   Modern Theme: Glassmorphism (Frosted Glass)
+   ========================================================================== */
+.snapbot-window.snapbot-theme-glass {
+  background: rgba(15, 23, 42, 0.82) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.65), 0 0 40px rgba(99, 102, 241, 0.18) !important;
+  color: #f8fafc !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-header {
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-messages {
+  background: transparent !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-message.assistant {
+  background: rgba(30, 41, 59, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-input-area {
+  background: rgba(15, 23, 42, 0.72) !important;
+  backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-input-area textarea {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-attach-btn {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #cbd5e1 !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-docs-drawer {
+  background: rgba(15, 23, 42, 0.94) !important;
+  backdrop-filter: blur(24px) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-docs-header {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-welcome h3 {
+  color: #ffffff !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-welcome p {
+  color: #94a3b8 !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-welcome-icon {
+  background: rgba(30, 41, 59, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-suggestion-chip {
+  background: rgba(30, 41, 59, 0.55) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #cbd5e1 !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-suggestion-chip:hover {
+  background: rgba(51, 65, 85, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  color: #ffffff !important;
+  transform: translateX(3px) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-markdown-body {
+  color: #f1f5f9 !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-heading {
+  color: #ffffff !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-inline-code {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-sources-title {
+  color: #94a3b8 !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-source-chip {
+  background: rgba(30, 41, 59, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #38bdf8 !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-branding {
+  color: #64748b !important;
+}
+
+.snapbot-window.snapbot-theme-glass .snapbot-branding span strong {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   Modern Theme: Cyberpunk Neon
+   ========================================================================== */
+.snapbot-window.snapbot-theme-cyber {
+  background: #090d16 !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.85), 0 0 35px rgba(56, 189, 248, 0.25) !important;
+  color: #f8fafc !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-header {
+  background: linear-gradient(135deg, #0b1120 0%, #1e1b4b 100%) !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.35) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-messages {
+  background: #060911 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-welcome h3 {
+  color: #f8fafc !important;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.4) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-welcome p {
+  color: #94a3b8 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-welcome-icon {
+  background: #0d1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.45) !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-suggestion-chip {
+  background: #0d1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #cbd5e1 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-suggestion-chip:hover {
+  background: #141f36 !important;
+  border-color: rgba(56, 189, 248, 0.65) !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25) !important;
+  transform: translateX(3px) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-message.assistant {
+  background: #0d1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-markdown-body {
+  color: #e2e8f0 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-heading {
+  color: #38bdf8 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-inline-code {
+  background: #070c14 !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-sources-title {
+  color: #38bdf8 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-source-chip {
+  background: #070c14 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  color: #38bdf8 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-input-area {
+  background: #090d16 !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.25) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-input-area textarea {
+  background: #0d1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  color: #f8fafc !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-input-area textarea:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-attach-btn {
+  background: #0d1527 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  color: #38bdf8 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-attach-btn:hover:not(:disabled) {
+  background: #141f36 !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-docs-drawer {
+  background: #090d16 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-docs-header {
+  background: #0d1527 !important;
+  border-bottom-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-docs-title {
+  color: #38bdf8 !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-docs-item {
+  background: #0d1527 !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-docs-item-name {
+  color: #f8fafc !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-branding {
+  color: #64748b !important;
+}
+
+.snapbot-window.snapbot-theme-cyber .snapbot-branding span strong {
+  color: #38bdf8 !important;
 }
 
 /* Mobile Responsive */

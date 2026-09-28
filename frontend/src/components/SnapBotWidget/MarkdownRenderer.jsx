@@ -142,7 +142,14 @@ export function CodeBlock({ language, code }) {
   return (
     <div className="snapbot-code-wrapper">
       <div className="snapbot-code-header">
-        <span className="snapbot-code-lang">{language || "code"}</span>
+        <div className="snapbot-code-header-left">
+          <div className="snapbot-code-dots" aria-hidden="true">
+            <span className="snapbot-dot-red" />
+            <span className="snapbot-dot-yellow" />
+            <span className="snapbot-dot-green" />
+          </div>
+          <span className="snapbot-code-lang">{language || "code"}</span>
+        </div>
         <button
           className="snapbot-copy-btn"
           onClick={handleCopy}
