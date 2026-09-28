@@ -47,5 +47,14 @@
     "streaming",
     "snapbot"
   ],
+  "author": "saksham_01",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sakshamgoel2106/plug-AI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sakshamgoel2106/plug-AI/issues"
+  },
+  "homepage": "https://github.com/sakshamgoel2106/plug-AI#readme",
   "license": "MIT"
 }

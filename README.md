@@ -123,8 +123,8 @@ export default App;
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/snapbot.git
-cd snapbot/backend
+git clone https://github.com/sakshamgoel2106/plug-AI.git
+cd plug-AI/backend
 ```
 
 ### 2. Create and Activate a Virtual Environment

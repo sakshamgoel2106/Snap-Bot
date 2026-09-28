@@ -1,6 +1,9 @@
 # snapbot-widget ⚡
 
-Embeddable, customizable floating AI chatbot widget for React applications with multi-provider AI support, real-time streaming, Markdown formatting, and local chat persistence.
+[![npm version](https://img.shields.io/npm/v/snapbot-widget.svg)](https://www.npmjs.com/package/snapbot-widget)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+Embeddable, customizable floating AI chatbot widget for React applications with multi-provider AI support, real-time streaming, Markdown formatting, document upload (PDF, TXT, MD), and local chat persistence.
 
 ## Installation
 
