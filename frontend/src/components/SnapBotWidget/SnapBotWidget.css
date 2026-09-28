@@ -1,0 +1,1438 @@
+/* ==========================================================================
+   SnapBot Widget Styles - Configurable Customization System
+   ========================================================================== */
+
+:root {
+  --snapbot-primary: #111827;
+  --snapbot-width: 380px;
+  --snapbot-height: 560px;
+}
+
+/* Floating Launcher Button */
+.snapbot-button,
+.plugai-button {
+  position: fixed;
+  bottom: 24px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: var(--snapbot-primary, #111827);
+  color: #ffffff;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+  z-index: 999999;
+  user-select: none;
+}
+
+.snapbot-button.pos-left,
+.plugai-button.pos-left {
+  left: 24px;
+  right: auto;
+}
+
+.snapbot-button.pos-right,
+.plugai-button.pos-right {
+  right: 24px;
+  left: auto;
+}
+
+.snapbot-button:hover,
+.plugai-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.35), 0 10px 15px -5px rgba(0, 0, 0, 0.25);
+}
+
+.snapbot-button:active,
+.plugai-button:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* Chat Window Modal */
+.snapbot-window,
+.plugai-window {
+  position: fixed;
+  bottom: 96px;
+  width: var(--snapbot-width, 380px);
+  max-width: calc(100vw - 32px);
+  height: var(--snapbot-height, 560px);
+  max-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  z-index: 999998;
+  animation: snapbot-slide-up 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.snapbot-window.pos-left,
+.plugai-window.pos-left {
+  left: 24px;
+  right: auto;
+}
+
+.snapbot-window.pos-right,
+.plugai-window.pos-right {
+  right: 24px;
+  left: auto;
+}
+
+@keyframes snapbot-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+.snapbot-header,
+.plugai-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--snapbot-primary, #111827);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.snapbot-header-info,
+.plugai-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.snapbot-avatar,
+.plugai-avatar,
+.plugai-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.snapbot-header-titles,
+.plugai-header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.snapbot-header-titles strong,
+.plugai-header-titles strong,
+.plugai-header strong {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #f8fafc;
+}
+
+.snapbot-kb-indicator-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  text-transform: uppercase;
+}
+
+
+.snapbot-status-row,
+.plugai-status-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.snapbot-status-dot,
+.plugai-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: snapbot-pulse 2s infinite;
+}
+
+@keyframes snapbot-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.snapbot-status-text,
+.plugai-status-text,
+.plugai-header span {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.snapbot-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.snapbot-action-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.snapbot-action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: rotate(-90deg);
+}
+
+.snapbot-close-btn,
+.plugai-close-btn,
+.close-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.snapbot-close-btn:hover,
+.plugai-close-btn:hover,
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Messages Container */
+.snapbot-messages,
+.plugai-messages {
+  flex: 1;
+  padding: 20px 16px;
+  overflow-y: auto;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Custom Scrollbar */
+.snapbot-messages::-webkit-scrollbar,
+.plugai-messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.snapbot-messages::-webkit-scrollbar-track,
+.plugai-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.snapbot-messages::-webkit-scrollbar-thumb,
+.plugai-messages::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* Empty / Welcome State */
+.snapbot-welcome,
+.plugai-welcome {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.snapbot-welcome-icon,
+.plugai-welcome-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  margin-bottom: 14px;
+}
+
+.snapbot-welcome h3,
+.plugai-welcome h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.snapbot-welcome p,
+.plugai-welcome p {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 240px;
+}
+
+/* Message Bubbles */
+.snapbot-message,
+.plugai-message {
+  max-width: 82%;
+  padding: 11px 15px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-word;
+  white-space: pre-wrap;
+  animation: snapbot-msg-pop 0.2s ease-out;
+}
+
+@keyframes snapbot-msg-pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.snapbot-message.user,
+.plugai-message.user {
+  margin-left: auto;
+  background: var(--snapbot-primary, #111827);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.snapbot-message.assistant,
+.plugai-message.assistant {
+  margin-right: auto;
+  background: #ffffff;
+  color: #1e293b;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+}
+
+/* Markdown & Structured Content */
+.snapbot-markdown-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1e293b;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.snapbot-markdown-body p.snapbot-paragraph {
+  margin: 0 0 10px 0;
+}
+
+.snapbot-markdown-body p.snapbot-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings */
+.snapbot-heading {
+  font-weight: 700;
+  margin: 14px 0 6px 0;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+.snapbot-heading:first-child {
+  margin-top: 0;
+}
+
+.snapbot-heading.h1 {
+  font-size: 17px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+
+.snapbot-heading.h2 {
+  font-size: 15.5px;
+}
+
+.snapbot-heading.h3 {
+  font-size: 14.5px;
+}
+
+.snapbot-heading.h4,
+.snapbot-heading.h5,
+.snapbot-heading.h6 {
+  font-size: 13.5px;
+  color: #334155;
+}
+
+/* Lists */
+.snapbot-list {
+  margin: 6px 0 10px 0;
+  padding-left: 22px;
+}
+
+.snapbot-list:last-child {
+  margin-bottom: 0;
+}
+
+.snapbot-list li {
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.snapbot-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Links */
+.snapbot-link {
+  color: var(--snapbot-primary, #111827);
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.snapbot-link:hover {
+  opacity: 0.8;
+}
+
+/* Blockquotes */
+.snapbot-blockquote {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--snapbot-primary, #111827);
+  background: rgba(17, 24, 39, 0.04);
+  color: #475569;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+.snapbot-blockquote:last-child {
+  margin-bottom: 0;
+}
+
+/* Inline Code */
+.snapbot-inline-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12.5px;
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 2px 6px;
+  border-radius: 5px;
+  border: 1px solid #e2e8f0;
+  word-break: break-word;
+}
+
+/* Fenced Code Blocks */
+.snapbot-code-wrapper {
+  margin: 12px 0;
+  background: #0f172a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  border: 1px solid #1e293b;
+}
+
+.snapbot-code-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.snapbot-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.snapbot-code-lang {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.snapbot-copy-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.snapbot-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.snapbot-code-block {
+  margin: 0;
+  padding: 12px 14px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12.5px;
+  color: #f8fafc;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.snapbot-code-block code {
+  color: inherit;
+  font-family: inherit;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* Typing Indicator Animation */
+.snapbot-typing,
+.plugai-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 16px;
+}
+
+.snapbot-dot,
+.plugai-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #94a3b8;
+  animation: snapbot-dot-pulse 1.4s infinite ease-in-out both;
+}
+
+.snapbot-dot:nth-child(1),
+.plugai-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.snapbot-dot:nth-child(2),
+.plugai-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes snapbot-dot-pulse {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+    background: var(--snapbot-primary, #111827);
+  }
+}
+
+/* RAG Searching Indicator */
+.snapbot-rag-searching {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.snapbot-rag-icon {
+  font-size: 13px;
+  animation: snapbot-pulse 1.5s infinite;
+}
+
+/* Source Citations */
+.snapbot-sources {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.snapbot-sources-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.snapbot-sources-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.snapbot-source-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 2px 7px;
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-sources {
+  border-top-color: #334155;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-sources-title {
+  color: #94a3b8;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-source-chip {
+  background: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+/* Suggested Prompts */
+.snapbot-suggestions {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.snapbot-suggestions-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+.snapbot-suggestions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.snapbot-suggestion-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.snapbot-suggestion-chip:hover {
+  background: #f1f5f9;
+  border-color: var(--snapbot-primary, #111827);
+  transform: translateX(2px);
+  color: #0f172a;
+}
+
+.snapbot-suggestion-chip .snapbot-chip-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Message Wrapper & Actions */
+.snapbot-message-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.snapbot-message-wrapper.user {
+  align-items: flex-end;
+}
+
+.snapbot-message-wrapper.assistant {
+  align-items: flex-start;
+}
+
+.snapbot-msg-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.snapbot-msg-actions:hover {
+  opacity: 1;
+}
+
+.snapbot-msg-action-btn {
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  color: #64748b;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.snapbot-msg-action-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Streaming Bar & Controls */
+.snapbot-streaming-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 10px;
+  margin-bottom: 6px;
+  background: rgba(17, 24, 39, 0.04);
+  border-radius: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.snapbot-streaming-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.snapbot-streaming-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--snapbot-primary, #111827);
+  animation: snapbot-pulse 1.5s infinite;
+}
+
+.snapbot-stop-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.snapbot-stop-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Input Area & Auto-resizing Textarea */
+.snapbot-input-area,
+.plugai-input-area,
+.plugai-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.snapbot-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.snapbot-input-area textarea,
+.snapbot-input-area input,
+.plugai-input-area input,
+.plugai-input input {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  max-height: 120px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.45;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.snapbot-input-area textarea:focus,
+.snapbot-input-area input:focus,
+.plugai-input-area input:focus,
+.plugai-input input:focus {
+  background: #ffffff;
+  border-color: var(--snapbot-primary, #111827);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--snapbot-primary, #111827) 18%, transparent);
+}
+
+.snapbot-input-area textarea::placeholder,
+.snapbot-input-area input::placeholder,
+.plugai-input-area input::placeholder,
+.plugai-input input::placeholder {
+  color: #94a3b8;
+}
+
+.snapbot-send-btn,
+.plugai-send-btn,
+.plugai-input button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  background: var(--snapbot-primary, #111827);
+  color: #ffffff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.snapbot-send-btn:hover:not(:disabled),
+.plugai-send-btn:hover:not(:disabled),
+.plugai-input button:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.snapbot-send-btn:disabled,
+.plugai-send-btn:disabled,
+.plugai-input button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: #94a3b8;
+}
+
+/* Branding Badge */
+.snapbot-branding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10.5px;
+  color: #94a3b8;
+  padding-top: 2px;
+  user-select: none;
+}
+
+.snapbot-branding span strong {
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Dark Theme Styles */
+.snapbot-window.snapbot-theme-dark {
+  background: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #1e293b;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6);
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-messages {
+  background: #0b1120;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-welcome h3 {
+  color: #f8fafc;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-welcome p {
+  color: #94a3b8;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-welcome-icon {
+  background: #1e293b;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-suggestion-chip {
+  background: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-suggestion-chip:hover {
+  background: #334155;
+  border-color: #475569;
+  color: #ffffff;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-message.assistant {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-color: #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-markdown-body {
+  color: #f1f5f9;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-heading {
+  color: #f8fafc;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-heading.h1 {
+  border-bottom-color: #334155;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-inline-code {
+  background: #334155;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-blockquote {
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-input-area {
+  background: #0f172a;
+  border-top-color: #1e293b;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-input-area textarea {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-input-area textarea:focus {
+  background: #1e293b;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-streaming-bar {
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-msg-action-btn {
+  color: #94a3b8;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-msg-action-btn:hover {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-branding span strong {
+  color: #cbd5e1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .snapbot-window.snapbot-theme-auto {
+    background: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #1e293b;
+  }
+  .snapbot-window.snapbot-theme-auto .snapbot-messages {
+    background: #0b1120;
+  }
+  .snapbot-window.snapbot-theme-auto .snapbot-message.assistant {
+    background: #1e293b;
+    color: #f1f5f9;
+    border-color: #334155;
+  }
+  .snapbot-window.snapbot-theme-auto .snapbot-input-area {
+    background: #0f172a;
+    border-top-color: #1e293b;
+  }
+  .snapbot-window.snapbot-theme-auto .snapbot-input-area textarea {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+  .snapbot-window,
+  .plugai-window {
+    right: 12px !important;
+    left: 12px !important;
+    bottom: 84px !important;
+    width: auto !important;
+    max-width: none !important;
+    height: calc(100vh - 100px) !important;
+    border-radius: 16px;
+  }
+
+  .snapbot-button.pos-left,
+  .plugai-button.pos-left {
+    left: 18px !important;
+    right: auto !important;
+    bottom: 18px;
+    width: 54px;
+    height: 54px;
+    font-size: 22px;
+  }
+
+  .snapbot-button.pos-right,
+  .plugai-button.pos-right {
+    right: 18px !important;
+    left: auto !important;
+    bottom: 18px;
+    width: 54px;
+    height: 54px;
+    font-size: 22px;
+  }
+}
+
+/* ==========================================================================
+   In-Widget Document Upload & Knowledge Base Drawer
+   ========================================================================== */
+
+/* File Attachment Button */
+.snapbot-attach-btn {
+  width: 38px;
+  height: 40px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.snapbot-attach-btn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: var(--snapbot-primary, #111827);
+  color: var(--snapbot-primary, #111827);
+  transform: translateY(-1px);
+}
+
+.snapbot-attach-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Uploading Progress Status Bar */
+.snapbot-upload-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  font-size: 11.5px;
+  color: #166534;
+  animation: snapbot-msg-pop 0.2s ease-out;
+}
+
+.snapbot-upload-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #86efac;
+  border-top-color: #16a34a;
+  border-radius: 50%;
+  animation: snapbot-spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes snapbot-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Drag and Drop Overlay */
+.snapbot-messages.snapbot-dragging {
+  position: relative;
+}
+
+.snapbot-drag-overlay {
+  position: absolute;
+  inset: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  border: 2px dashed var(--snapbot-primary, #111827);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: snapbot-msg-pop 0.15s ease-out;
+  pointer-events: none;
+}
+
+.snapbot-drag-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--snapbot-primary, #111827);
+  text-align: center;
+}
+
+.snapbot-drag-icon {
+  font-size: 32px;
+}
+
+.snapbot-drag-content strong {
+  font-size: 15px;
+}
+
+.snapbot-drag-content span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* In-Widget Documents Drawer */
+.snapbot-docs-drawer {
+  position: absolute;
+  top: 61px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  animation: snapbot-msg-pop 0.2s ease-out;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+
+.snapbot-docs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.snapbot-docs-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.snapbot-docs-count {
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+.snapbot-docs-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  line-height: 1;
+  transition: all 0.15s ease;
+}
+
+.snapbot-docs-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.snapbot-docs-body {
+  flex: 1;
+  padding: 14px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.snapbot-docs-upload-cta {
+  width: 100%;
+}
+
+.snapbot-docs-upload-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px dashed var(--snapbot-primary, #111827);
+  background: rgba(17, 24, 39, 0.03);
+  color: var(--snapbot-primary, #111827);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.snapbot-docs-upload-btn:hover:not(:disabled) {
+  background: rgba(17, 24, 39, 0.07);
+}
+
+.snapbot-docs-upload-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.snapbot-docs-loading {
+  text-align: center;
+  padding: 24px;
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.snapbot-docs-empty {
+  text-align: center;
+  padding: 24px 12px;
+  color: #64748b;
+}
+
+.snapbot-docs-empty p {
+  margin: 0 0 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #334155;
+}
+
+.snapbot-docs-empty span {
+  font-size: 12px;
+  line-height: 1.4;
+  display: block;
+}
+
+.snapbot-docs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.snapbot-docs-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.snapbot-docs-item:hover {
+  border-color: #cbd5e1;
+}
+
+.snapbot-docs-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.snapbot-docs-item-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.snapbot-docs-item-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.snapbot-docs-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.snapbot-docs-item-meta {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.snapbot-docs-delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.snapbot-docs-delete-btn:hover {
+  opacity: 1;
+  background: #fee2e2;
+}
+
+/* Dark Mode In-Widget Documents */
+.snapbot-window.snapbot-theme-dark .snapbot-attach-btn {
+  background: #1e293b;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-attach-btn:hover:not(:disabled) {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-upload-status {
+  background: rgba(22, 101, 52, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #86efac;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-drag-overlay {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: #60a5fa;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-drag-content span {
+  color: #94a3b8;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-drawer {
+  background: #0f172a;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-header {
+  background: #1e293b;
+  border-bottom-color: #334155;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-title {
+  color: #f8fafc;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-count {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-close-btn {
+  color: #94a3b8;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-close-btn:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-upload-btn {
+  border-color: #60a5fa;
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-empty p {
+  color: #e2e8f0;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-item-name {
+  color: #f8fafc;
+}
+
+.snapbot-window.snapbot-theme-dark .snapbot-docs-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+}

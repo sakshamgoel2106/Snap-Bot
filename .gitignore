@@ -1,0 +1,35 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Node / Frontend
+node_modules/
+dist/
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Vector database & Local RAG storage
+backend/data/
+data/
+*.chroma
+chroma/
+
+# Temporary uploaded files & tarballs
+temp/
+tmp/
+*.tmp
+*.tgz
+*.log
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

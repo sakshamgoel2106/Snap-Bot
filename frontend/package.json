@@ -1,0 +1,51 @@
+{
+  "name": "snapbot-widget",
+  "version": "1.0.0",
+  "description": "An open-source, reusable AI chatbot widget for React with streaming, multiple AI providers, and RAG knowledge bases.",
+  "type": "module",
+  "main": "./dist/snapbot-widget.cjs",
+  "module": "./dist/snapbot-widget.js",
+  "style": "./dist/snapbot-widget.css",
+  "exports": {
+    ".": {
+      "import": "./dist/snapbot-widget.js",
+      "require": "./dist/snapbot-widget.cjs"
+    },
+    "./style.css": "./dist/snapbot-widget.css",
+    "./dist/snapbot-widget.css": "./dist/snapbot-widget.css"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "vite": "^8.3.0"
+  },
+  "keywords": [
+    "ai",
+    "chatbot",
+    "react",
+    "widget",
+    "gemini",
+    "openai",
+    "ollama",
+    "rag",
+    "knowledge-base",
+    "fastapi",
+    "streaming",
+    "snapbot"
+  ],
+  "license": "MIT"
+}
